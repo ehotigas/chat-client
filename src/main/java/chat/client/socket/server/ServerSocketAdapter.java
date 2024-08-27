@@ -37,11 +37,13 @@ public class ServerSocketAdapter implements IServerSocketAdapter {
             throw new SocketDisconnectException("Nenhuma conexão encontrada");
         }
         socket.disconnect();
+        socket.close();
         isConnected = false;
     }
 
     @Override
     public void emit(IServerEvent event) {
+        System.out.println(event.getEventName() + " " + (String) event.getArgs());
         socket.emit(event.getEventName(), event.getArgs());
     }
 
