@@ -1,12 +1,12 @@
-package chat.client.socket.server.listener;
+package chat.client.socket.server.listener.impl;
 
-import java.util.function.BiConsumer;
+import chat.client.socket.server.listener.IListener;
 
 public class MessageEventListener implements IListener {
     private final String eventName = "msgToClient";
-    private BiConsumer<String, String> callback;
+    private IMessageEventListenerCallback callback;
 
-    public MessageEventListener(BiConsumer<String, String> callback) {
+    public MessageEventListener(IMessageEventListenerCallback callback) {
         this.callback = callback;
     }
 
